@@ -1,13 +1,200 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-size: 14px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+main {
+  height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+main.day {
+  background: url(img/daytime-mobile.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+main.night {
+  background: url(img/night-mobile.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.main-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.main-container .form-input-container {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  transition: top 0.5s ease-in-out;
+  color: #ffffff;
+}
+
+.main-container .form-input-container.move-up {
+  top: 7%;
+}
+
+.city-container {
+  font-size: 18px;
+}
+
+input[type="submit"] {
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  border: #ffffff 1px solid;
+  display: inline-block;
+  vertical-align: top;
+  padding: 2px 7px;
+  background-color: transparent;
+}
+
+input[type="submit"]:hover {
+  color: lightblue;
+  background-color: #ffffff;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+form label {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.high-low-container img {
+  height: 24px;
+  margin-right: 3px;
+}
+
+#weather-condition-icon {
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.weather-split-container {
+  width: 100%;
+  height: 175px;
+  margin: 0 auto;
+}
+
+.single-day-weather-condition-container {
+  position: absolute;
+  top: 27%;
+  width: 100%;
+  display: none;
+  color: #ffffff;
+}
+
+.single-day-weather-condition-container.show {
+  display: block;
+  opacity: 0;
+  animation: fade-in 2s forwards;
+}
+
+.high-temp-icon {
+  transform: rotate(180deg);
+}
+
+.high-temp-number {
+  margin-right: 15px;
+}
+
+.cold {
+  color: blue;
+}
+
+.moderate {
+  color: green;
+}
+
+.warm {
+  color: orange;
+}
+
+.hot {
+  color: red;
+}
+
+.temperature-numbers {
+  font-family: "Montserrat", sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+}
+
+/* Make the element fade in */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  main.day {
+    background-image: url(img/daytime-tablet.jpg);
+  }
+
+  main.night {
+    background-image: url(img/night-tablet.jpg);
+  }
+
+  .weather-split-container {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+    height: 350px;
+  }
+
+  .form-input-container {
+    font-size: 18px;
+  }
+
+  input[type="submit"] {
+    margin-top: 3px;
+  }
+
+  .city-container {
+    font-size: 30px;
+    margin-bottom: 60px;
+  }
+  #weather-condition-icon {
+    height: 85%;
+    margin-bottom: 0;
+  }
+
+  .weather-description {
+    font-size: 24px;
+  }
+  .temperature-numbers {
+    font-size: 65px;
+  }
+  .high-low-container img {
+    height: 42px;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  main.day {
+    background-image: url(img/daytime-desktop.jpg);
+  }
+
+  main.night {
+    background-image: url(img/night-desktop.jpg);
+  }
 }
