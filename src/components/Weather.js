@@ -1,7 +1,17 @@
 import React from "react";
 // import sunIcon from "../icons/sun.svg";
 import downArrow from "../icons/down-arrow.svg";
-const Weather = props => {
+
+const Weather = ({ currentTemp,
+  highTemp,
+  lowTemp,
+  humidity,
+  city,
+  country,
+  description,
+  condition,
+  hours,
+  singleDayWeatherRef }) => {
   const returnTempColor = temp => {
     if (temp < 50) {
       return "cold";
@@ -72,10 +82,10 @@ const Weather = props => {
     let iconFilename = "sun.svg"; // Default image so error won't pop up before location chosen
 
     weatherIcon.forEach(key => {
-      if (key.description === props.description) {
+      if (key.description === description) {
         if (key.dayAndNight) {
           iconFilename =
-            props.hours >= 19 || props.hours < 5
+            hours >= 19 || hours < 5
               ? key.filenameNight
               : key.filenameDay;
         } else {
@@ -87,9 +97,9 @@ const Weather = props => {
   };
 
   return (
-    <div className="single-day-weather-condition-container">
+    <div ref={singleDayWeatherRef} className="single-day-weather-condition-container">
       <p className="city-container">
-        {props.city}, {props.country}
+        {city}, {country}
       </p>
       {/* <p>Today</p> */}
       <div className="weather-icon-container weather-split-container">
@@ -103,32 +113,32 @@ const Weather = props => {
         <p>
           <span
             className={`temperature-numbers current-temp-number ${returnTempColor(
-              props.currentTemp
+              currentTemp
             )}`}
           >
-            {props.currentTemp}&deg;
+            {currentTemp}&deg;
           </span>
         </p>
         <div className="high-low-container">
           <img className="high-temp-icon" src={downArrow} alt="up arrow" />
           <span
             className={`temperature-numbers high-temp-number ${returnTempColor(
-              props.highTemp
+              highTemp
             )}`}
           >
-            {props.highTemp}&deg;
+            {highTemp}&deg;
           </span>
 
           <img className="low-temp-icon" src={downArrow} alt="down arrow" />
           <span
             className={`temperature-numbers low-temp-number ${returnTempColor(
-              props.lowTemp
+              lowTemp
             )}`}
           >
-            {props.lowTemp}&deg;
+            {lowTemp}&deg;
           </span>
         </div>
-        <p className="weather-description">{props.description}</p>
+        <p className="weather-description">{description}</p>
       </div>
     </div>
   );
