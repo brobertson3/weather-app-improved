@@ -19,7 +19,7 @@ main {
   align-items: center; */
 }
 
-main.day {
+/* main.day {
   background: url(img/daytime-mobile.jpg) no-repeat center center fixed;
   background-size: cover;
 }
@@ -27,7 +27,7 @@ main.day {
 main.night {
   background: url(img/night-mobile.jpg) no-repeat center center fixed;
   background-size: cover;
-}
+} */
 
 .main-container {
   height: 100vh;

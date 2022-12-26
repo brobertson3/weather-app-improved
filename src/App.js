@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
+import { Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
 // import ReactDOM from "react-dom";
 // import LocationSearchInput from "./components/LocationSearchInput";
 import "./index.css";
 import Weather from "./components/Weather";
 // import * as serviceWorker from "./serviceWorker";
+import SearchIcon from '@mui/icons-material/Search';
 
 const App = () => {
   const [weatherState, setWeatherState] = useState({
@@ -53,6 +55,7 @@ const App = () => {
     if (api_call.ok === true) {
       // console.log("were in here");
       setWeatherState({
+        ...weatherState,
         currentTemp: convertTemp(response.main.temp),
         highTemp: convertTemp(response.main.temp_max),
         lowTemp: convertTemp(response.main.temp_min),
@@ -90,15 +93,28 @@ const App = () => {
           <p>Please enter in your location (zip code only)</p>
           {/* This gets the location from the user */}
 
-          <form onSubmit={handleSubmit}>
+          <form>
             <label>
-              <input
-                type="text"
+              <TextField
                 value={weatherState.value}
                 onChange={handleChange}
+                placeholder='Enter in zipcode'
+                sx={{ backgroundColor: 'white' }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        edge="end"
+                        aria-label="Toggle password visibility"
+                        onClick={handleSubmit}
+                      >
+                        {<SearchIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
             </label>
-            <input type="submit" value="Submit" />
           </form>
 
           {/* <LocationSearchInput /> */}
