@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 // import ReactDOM from "react-dom";
 // import LocationSearchInput from "./components/LocationSearchInput";
 import "./index.css";
