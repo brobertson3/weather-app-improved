@@ -1,10 +1,5 @@
 import React, { useRef, useState } from "react";
 import { IconButton, InputAdornment, TextField, Typography } from "@mui/material";
-import {
-  createTheme,
-  responsiveFontSizes,
-  ThemeProvider,
-} from '@mui/material/styles';
 // import LocationSearchInput from "./components/LocationSearchInput";
 import "./index.css";
 import Weather from "./components/Weather";
@@ -84,8 +79,7 @@ const App = () => {
 
   const getTimeOfDay = hours => {
     console.log(hours);
-    // return hours < 5 || hours >= 19 ? "night" : "day";
-    return hours < 5 || hours >= 19 ? "day" : "night";
+    return hours < 5 || hours >= 19 ? "night" : "day";
   };
 
   return (
