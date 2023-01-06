@@ -1,10 +1,13 @@
 import React, { useRef, useState } from "react";
-import { IconButton, InputAdornment, TextField } from "@mui/material";
-// import ReactDOM from "react-dom";
+import { IconButton, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from '@mui/material/styles';
 // import LocationSearchInput from "./components/LocationSearchInput";
 import "./index.css";
 import Weather from "./components/Weather";
-// import * as serviceWorker from "./serviceWorker";
 import SearchIcon from '@mui/icons-material/Search';
 
 const App = () => {
@@ -50,10 +53,8 @@ const App = () => {
       console.log(err);
     });
 
-    // console.log(response);
     // Only run this code if API call worked and conversion to json successful
     if (api_call.ok === true) {
-      // console.log("were in here");
       setWeatherState({
         ...weatherState,
         currentTemp: convertTemp(response.main.temp),
@@ -83,14 +84,15 @@ const App = () => {
 
   const getTimeOfDay = hours => {
     console.log(hours);
-    return hours < 5 || hours >= 19 ? "night" : "day";
+    // return hours < 5 || hours >= 19 ? "night" : "day";
+    return hours < 5 || hours >= 19 ? "day" : "night";
   };
 
   return (
     <main className={getTimeOfDay(weatherState.hours)}>
       <div className="main-container">
         <div ref={formInputRef} className="form-input-container">
-          <p>Please enter in your location (zip code only)</p>
+          <Typography variant='body1' sx={{ marginBottom: '15px' }}>Please enter in your location (zip code only)</Typography>
           {/* This gets the location from the user */}
 
           <form>
@@ -99,7 +101,7 @@ const App = () => {
                 value={weatherState.value}
                 onChange={handleChange}
                 placeholder='Enter in zipcode'
-                sx={{ backgroundColor: 'white' }}
+                sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">

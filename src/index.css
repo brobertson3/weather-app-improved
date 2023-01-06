@@ -14,14 +14,13 @@ code {
 
 main {
   height: 100vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 main.day {
-  background: url(img/daytime-mobile.jpg) no-repeat center center fixed;
+  background: rgb(255,255,162);
   background-size: cover;
+
+background: radial-gradient(circle, rgba(255,255,162,1) 0%, rgba(255,212,85,1) 30%, rgba(255,201,86,1) 100%);
 }
 
 main.night {
@@ -48,10 +47,6 @@ main.night {
 
 .main-container .form-input-container.move-up {
   top: 7%;
-}
-
-.city-container {
-  font-size: 18px;
 }
 
 input[type="submit"] {
@@ -81,14 +76,22 @@ form label {
 }
 
 #weather-condition-icon {
-  height: 100%;
   margin-bottom: 10px;
+  height: 100px;
+}
+
+.weather-details-container {
+  background: #FF7556;
+  border-radius: 8px;
+  padding: 20px 0 10px;
+  width: 80%;
+  max-width: 380px;
+
 }
 
 .weather-split-container {
-  width: 100%;
-  height: 175px;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .single-day-weather-condition-container {
@@ -114,19 +117,19 @@ form label {
 }
 
 .cold {
-  color: blue;
+  color: #1ecbe1;
 }
 
 .moderate {
-  color: green;
+  color: #38ca35;
 }
 
 .warm {
-  color: orange;
+  color: #ebb514;
 }
 
 .hot {
-  color: red;
+  color: #f80715;
 }
 
 .temperature-numbers {
@@ -146,10 +149,6 @@ form label {
 }
 
 @media only screen and (min-width: 768px) {
-  main.day {
-    background-image: url(img/daytime-tablet.jpg);
-  }
-
   main.night {
     background-image: url(img/night-tablet.jpg);
   }
@@ -158,7 +157,7 @@ form label {
     display: inline-block;
     width: 50%;
     vertical-align: middle;
-    height: 350px;
+    height: 250px;
   }
 
   .form-input-container {
@@ -169,13 +168,10 @@ form label {
     margin-top: 3px;
   }
 
-  .city-container {
-    font-size: 30px;
-    margin-bottom: 60px;
-  }
   #weather-condition-icon {
     height: 85%;
     margin-bottom: 0;
+    object-fit: contain;
   }
 
   .weather-description {
@@ -190,10 +186,6 @@ form label {
 }
 
 @media only screen and (min-width: 1300px) {
-  main.day {
-    background-image: url(img/daytime-desktop.jpg);
-  }
-
   main.night {
     background-image: url(img/night-desktop.jpg);
   }

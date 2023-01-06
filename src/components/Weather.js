@@ -1,6 +1,13 @@
 import React from "react";
-// import sunIcon from "../icons/sun.svg";
 import downArrow from "../icons/down-arrow.svg";
+import { Typography } from "@mui/material";
+import { styled } from '@mui/system';
+
+const SCityTypography = styled(Typography)(({ theme }) => ({
+  color: 'white',
+  marginBottom: '60px',
+  marginTop: '20px'
+}));
 
 const Weather = ({ currentTemp,
   highTemp,
@@ -97,11 +104,8 @@ const Weather = ({ currentTemp,
   };
 
   return (
-    <div ref={singleDayWeatherRef} className="single-day-weather-condition-container">
-      <p className="city-container">
-        {city}, {country}
-      </p>
-      {/* <p>Today</p> */}
+    <section ref={singleDayWeatherRef} className="single-day-weather-condition-container" >
+      <SCityTypography variant='h3'>{city}, {country}</SCityTypography>
       <div className="weather-icon-container weather-split-container">
         <img
           id="weather-condition-icon"
@@ -110,7 +114,7 @@ const Weather = ({ currentTemp,
         />
       </div>
       <div className="weather-details-container weather-split-container">
-        <p>
+        <Typography variant='h3'>
           <span
             className={`temperature-numbers current-temp-number ${returnTempColor(
               currentTemp
@@ -118,7 +122,7 @@ const Weather = ({ currentTemp,
           >
             {currentTemp}&deg;
           </span>
-        </p>
+        </Typography>
         <div className="high-low-container">
           <img className="high-temp-icon" src={downArrow} alt="up arrow" />
           <span
@@ -140,7 +144,7 @@ const Weather = ({ currentTemp,
         </div>
         <p className="weather-description">{description}</p>
       </div>
-    </div>
+    </section>
   );
 };
 export default Weather;
